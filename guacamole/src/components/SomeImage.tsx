@@ -16,7 +16,7 @@ const SomeImage = () => {
         marginX="auto"
       >
         <Image
-          src="/Launching-amico.svg"
+          src="/thank-you.svg"
           width={400}
           height={400}
           alt="Launching Illustration"
@@ -28,11 +28,6 @@ const SomeImage = () => {
         </Link>
       </Text>
 
-      <Flex marginY={4} justifyContent="center" alignItems="center">
-        <HelperImage src="/nextjs-black-logo.svg" label="NextJS" />
-        <HelperImage src="/chakra-ui-logomark-colored.svg" label="Chakra UI" />
-        <HelperImage src="/ts-logo-512.svg" label="TypeScript" />
-      </Flex>
     </>
   );
 };

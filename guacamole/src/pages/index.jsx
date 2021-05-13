@@ -4,23 +4,23 @@ import {
   Center, FormControl,
   FormHelperText,
   FormLabel,
-  Heading, useToast,
+  Heading,
   Image, Input,
-  Textarea
+  Textarea, useToast, Spinner
 } from "@chakra-ui/react";
 import axios from "axios";
-import { FormikErrors, useFormik } from "formik";
+import { useFormik } from "formik";
+import { useRouter } from 'next/router';
 import { useState } from "react";
-import {WidgetLoader} from 'react-cloudinary-upload-widget';
+import { WidgetLoader } from 'react-cloudinary-upload-widget';
 import Profile from "../utils";
-
 const Home = () => {
   const [loading, setLoading] = useState(false);
-  const [showSelect, setShowSelect] = useState(true)
   const [url, setUrl] = useState(null);
-const toast = useToast()
+  const toast = useToast();
+  const router = useRouter();
   const {
-    values: { name, content,title },
+    values: { name, content, title },
     errors,
     dirty,
     handleChange,
@@ -30,7 +30,7 @@ const toast = useToast()
     initialValues: {
       name: "",
       content: "",
-      title:""
+      title: ""
     },
     validate: (formValues) => {
       const errors = {};
@@ -41,7 +41,7 @@ const toast = useToast()
         errors.content = "Message must be filled";
       }
       if (formValues.title === "" && touched) {
-        errors.content = "title must be filled";
+        errors.title = "Title must be filled";
       }
       if (formValues.name.indexOf("script") > -1) {
         errors.name = "invalid characters";
@@ -52,19 +52,20 @@ const toast = useToast()
       return errors;
     },
     onSubmit: async (values) => {
-      if(url === null){
+      if (url === null) {
         toast({
           description: "You must choose image!, Click on 'Select Image'",
           status: "error",
           position: "bottom",
           isClosable: true,
         });
-      }else{
-        console.log({...values, image:url});
+      } else {
+        console.log({ ...values, image: url });
+        setLoading(true)
         const obj = {
           ...values, image: url
         }
-        axios.post('http://store77.herokuapp.com/api/testmonials',obj)
+        axios.post('http://store77.herokuapp.com/api/testmonials', obj).then(() => { setLoading(false); router.push("/success") })
       }
     },
   });
@@ -72,9 +73,7 @@ const toast = useToast()
     <Box mb={8} w="full">
       <Heading mb={4} letterSpacing={1}>Submit Testmonial</Heading>
       {url &&
-
         <Center>
-
           <Image boxSize="200px"
             borderRadius="full"
             objectFit="cover" src={url} />
@@ -144,7 +143,7 @@ const toast = useToast()
           mt={3}
           mb={3}
         >
-          Submit!
+          {loading ? <Spinner /> :"Submit!"}
         </Button>
       </FormControl>
     </Box>
