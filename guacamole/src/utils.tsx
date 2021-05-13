@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Widget } from 'react-cloudinary-upload-widget';
+const Widget = require('react-cloudinary-upload-widget')
 
 export interface ProileProps {
     url: string,
@@ -10,7 +10,7 @@ export interface ProileProps {
 const Proile: React.FunctionComponent<ProileProps> = ({ url, setUrl }) => {
     return (
         <Widget
-            sources={['facebook','instagram']}
+            sources={['facebook', 'instagram']}
             resourceType={'raw'}
             uploadPreset={'authors-hyahm'}
             cloudName={'binjswi01'}
