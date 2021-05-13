@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import { FormikErrors, useFormik } from "formik";
 import { useState } from "react";
-import { WidgetLoader } from 'react-cloudinary-upload-widget';
+const WidgetLoader = require('react-cloudinary-upload-widget');
 import Profile from "../utils";
 type CreateFormType = {
   name: string;
