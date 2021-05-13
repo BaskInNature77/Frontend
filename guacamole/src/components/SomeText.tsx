@@ -1,7 +1,9 @@
 import { useColorMode } from "@chakra-ui/color-mode";
 import { Box, Text } from "@chakra-ui/layout";
-
-const SomeText = ({text}) => {
+type SomeTextProps ={
+text?:string
+}
+const SomeText = ({text}: SomeTextProps) => {
   const { colorMode } = useColorMode();
 
   return (
