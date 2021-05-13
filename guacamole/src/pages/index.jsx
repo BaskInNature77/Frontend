@@ -25,6 +25,7 @@ const Home = () => {
     dirty,
     handleChange,
     handleSubmit,
+    resetForm,
     touched
   } = useFormik({
     initialValues: {
@@ -66,8 +67,9 @@ const Home = () => {
           ...values, image: url
         }
         axios.post('https://store77.herokuapp.com/api/testmonials', obj)
-        .then(() => { setLoading(false); router.push("/success") })
-        .catch((err) => { setLoading(false); window.alert(err) })
+          .then(() => { setLoading(false); router.push("/success") })
+          .then(() => resetForm({}))
+          .catch((err) => { setLoading(false); window.alert(err) })
       }
     },
   });
