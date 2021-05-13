@@ -6,7 +6,7 @@ import {
   FormLabel,
   Heading,
   Image, Input,
-  Textarea, useToast, Spinner
+  Spinner, Textarea, useToast
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useFormik } from "formik";
@@ -65,7 +65,9 @@ const Home = () => {
         const obj = {
           ...values, image: url
         }
-        axios.post('http://store77.herokuapp.com/api/testmonials', obj).then(() => { setLoading(false); router.push("/success") })
+        axios.post('https://store77.herokuapp.com/api/testmonials', obj)
+        .then(() => { setLoading(false); router.push("/success") })
+        .catch((err) => { setLoading(false); window.alert(err) })
       }
     },
   });
@@ -143,7 +145,7 @@ const Home = () => {
           mt={3}
           mb={3}
         >
-          {loading ? <Spinner /> :"Submit!"}
+          {loading ? <Spinner /> : "Submit!"}
         </Button>
       </FormControl>
     </Box>

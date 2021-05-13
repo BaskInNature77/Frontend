@@ -1,9 +1,9 @@
 import { useColorMode } from "@chakra-ui/color-mode";
 import { Box, Text } from "@chakra-ui/layout";
-type SomeTextProps ={
-text?:string
+type SomeTextProps = {
+  text?: string
 }
-const SomeText = ({text}: SomeTextProps) => {
+const SomeText = ({ text }: SomeTextProps) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -14,7 +14,7 @@ const SomeText = ({text}: SomeTextProps) => {
         borderRadius={4}
       >
         <Box d="flex" alignItems="center" fontSize="sm">
-          
+
           <Text fontSize="2xl">{text}</Text>
 
         </Box>

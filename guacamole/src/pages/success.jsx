@@ -1,4 +1,5 @@
 import { Box, Heading, Container, Center, Text} from '@chakra-ui/layout';
+import CTASection from 'components/CTASection';
 import HelperImage from 'components/HelperImage';
 import SomeImage from 'components/SomeImage';
 import SomeText from 'components/SomeText';
