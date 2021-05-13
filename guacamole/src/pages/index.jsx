@@ -11,17 +11,13 @@ import {
 import axios from "axios";
 import { FormikErrors, useFormik } from "formik";
 import { useState } from "react";
-const WidgetLoader = require('react-cloudinary-upload-widget');
+import {WidgetLoader} from 'react-cloudinary-upload-widget';
 import Profile from "../utils";
-type CreateFormType = {
-  name: string;
-  content: string;
-  title:string;
-};
+
 const Home = () => {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [showSelect, setShowSelect] = useState<boolean>(true)
-  const [url, setUrl] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
+  const [showSelect, setShowSelect] = useState(true)
+  const [url, setUrl] = useState(null);
 const toast = useToast()
   const {
     values: { name, content,title },
@@ -30,14 +26,14 @@ const toast = useToast()
     handleChange,
     handleSubmit,
     touched
-  } = useFormik<CreateFormType>({
+  } = useFormik({
     initialValues: {
       name: "",
       content: "",
       title:""
     },
-    validate: (formValues: CreateFormType) => {
-      const errors: FormikErrors<CreateFormType> = {};
+    validate: (formValues) => {
+      const errors = {};
       if (formValues.name === "" && touched) {
         errors.name = "Name must be filled";
       }

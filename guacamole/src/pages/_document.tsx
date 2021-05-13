@@ -1,8 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 const APP_NAME = "Bask in Nature";
-const APP_DESCRIPTION =
-  "Original recipes made from the finest Ethically Sourced Natural ingredients with no Preservatives, Additives &amp; Synthetic oils.";
+const APP_DESCRIPTION ="Original recipes made from the finest Ethically Sourced Natural ingredients with no Preservatives, Additives &amp; Synthetic oils.";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {

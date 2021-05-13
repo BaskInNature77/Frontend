@@ -1,20 +1,13 @@
-import * as React from 'react';
-const Widget = require('react-cloudinary-upload-widget')
+import React from 'react';
+import {Widget} from 'react-cloudinary-upload-widget';
 
-export interface ProileProps {
-    url: string,
-    setUrl: any
-}
-
-
-const Proile: React.FunctionComponent<ProileProps> = ({ url, setUrl }) => {
+const Proile = ({ url, setUrl }) => {
     return (
         <Widget
             sources={['facebook', 'instagram']}
             resourceType={'raw'}
             uploadPreset={'authors-hyahm'}
             cloudName={'binjswi01'}
-
             buttonText={'Select Image'}
             style={{
                 color: 'white',
@@ -29,7 +22,7 @@ const Proile: React.FunctionComponent<ProileProps> = ({ url, setUrl }) => {
             }}
             folder={'my_folder'}
             cropping={false}
-            onSuccess={(res: any) => setUrl(res.info.secure_url)}
+            onSuccess={(res) => setUrl(res.info.secure_url)}
             onFailure={() => console.log("failureCallBack")}
             logging={false}
             customPublicId={'sample'}
