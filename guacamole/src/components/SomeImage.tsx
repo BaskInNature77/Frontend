@@ -22,11 +22,11 @@ const SomeImage = () => {
           alt="Launching Illustration"
         />
       </MotionBox>
-      <Text textAlign="center" fontSize="xs">
+      {/* <Text textAlign="center" fontSize="xs">
         <Link href="https://stories.freepik.com/web" isExternal>
           Illustration by Freepik Stories
         </Link>
-      </Text>
+      </Text> */}
 
     </>
   );
