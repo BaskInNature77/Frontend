@@ -4,7 +4,7 @@ import {Widget} from 'react-cloudinary-upload-widget';
 const Proile = ({ url, setUrl }) => {
     return (
         <Widget
-            sources={['facebook', 'instagram']}
+            sources={['facebook', 'instagram','local']}
             resourceType={'raw'}
             uploadPreset={'authors-hyahm'}
             cloudName={'binjswi01'}
